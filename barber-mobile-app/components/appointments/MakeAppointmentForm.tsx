@@ -1,6 +1,7 @@
 import {
   ActivityIndicator,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -17,14 +18,17 @@ import { Customer } from "@/models/Customer";
 import { Ionicons } from "@expo/vector-icons";
 import CustomerInfo from "./CustomerInfo";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import Calendar from "./Calendar";
 
 const MakeAppointmentForm = () => {
   const [status, setStatus] = useState<"loading" | "waiting" | "disabled">(
     "waiting"
   );
   const [searchNameInput, setSearchNameInput] = useState<string>();
-  const [appointmentCustomer, setAppointmentCustomer] =
-    useState<Customer | null>(null);
+  const [appointmentCustomer, setAppointmentCustomer] = useState<Pick<
+    Customer,
+    "name"
+  > | null>(null);
   const customers: { name: string }[] = [{ name: "Juan" }, { name: "Maria" }];
 
   const [filteredCustomers, setFilteredCustomers] = useState<
@@ -45,15 +49,14 @@ const MakeAppointmentForm = () => {
 
     setAppointmentCustomer({
       name: "Juan",
-      creationDate: new Date(),
-      gender: "F",
-      id: 1,
     });
 
     setSearchNameInput("");
   };
 
   const deleteSelectedCustomer = () => {
+    console.log("deleting");
+
     setAppointmentCustomer(null);
   };
   const date = new Date();
@@ -97,26 +100,52 @@ const MakeAppointmentForm = () => {
             setCustomer={selectAppointmentCustomer}
           />
         )}
-        <CustomerInfo customer={{ name: "Juan" }} />
-      </View>
-
-      <Pressable
-        disabled={status !== "disabled"}
-        style={{
-          backgroundColor: "red",
-          borderRadius: 8,
-          justifyContent: "center",
-          alignItems: "center",
-          height: 45,
-        }}
-      >
-        {status === "loading" && <ActivityIndicator color={"white"} />}
-        {status === "waiting" && (
-          <Text style={{ color: "white", fontSize: 17, fontWeight: "bold" }}>
-            Agendar cita
-          </Text>
+        {appointmentCustomer && (
+          <CustomerInfo
+            customer={appointmentCustomer}
+            deleteSelectedCustomer={deleteSelectedCustomer}
+          />
         )}
-      </Pressable>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "white",
+            marginTop: 15,
+            borderTopEndRadius: 10,
+            borderTopStartRadius: 10,
+            padding: 5,
+          }}
+        >
+          <ScrollView>
+            <View>
+              <Text>Datos</Text>
+
+              <Text>Fecha:</Text>
+              <Calendar />
+            </View>
+          </ScrollView>
+          <Pressable
+            disabled={status !== "disabled"}
+            style={{
+              backgroundColor: "lightgray",
+              borderRadius: 8,
+              justifyContent: "center",
+              alignItems: "center",
+
+              height: 45,
+            }}
+          >
+            {status === "loading" && <ActivityIndicator color={"white"} />}
+            {status === "waiting" && (
+              <Text
+                style={{ color: "white", fontSize: 17, fontWeight: "bold" }}
+              >
+                Agendar cita
+              </Text>
+            )}
+          </Pressable>
+        </View>
+      </View>
     </>
   );
 };
