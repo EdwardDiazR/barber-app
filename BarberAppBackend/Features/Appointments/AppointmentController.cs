@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BarberAppBackend.Features.Appointment
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/appointments")]
     [ApiController]
     public class AppointmentController : ControllerBase
     {
@@ -16,7 +16,7 @@ namespace BarberAppBackend.Features.Appointment
         }
 
         [HttpGet]
-        public IActionResult GetAppointments()
+        public IActionResult GetTodaysAppointment()
         {
             return Ok();
         }
