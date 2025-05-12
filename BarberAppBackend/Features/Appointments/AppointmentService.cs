@@ -73,9 +73,18 @@ namespace BarberAppBackend.Features.Appointments
             return true;
         }
 
-        public void RescheduleAppointment(long AppointmentId)
+        public void RescheduleAppointment(long AppointmentId,DateTime NewDate)
         {
             //TODO: Reassign appointment date
+
+            if (NewDate.Date < ActualDateTime.Date)
+            {
+                throw new Exception("No puedes agendar una cita en fecha pasada");
+            }
+
+            var Appointment = _db.Appointments.Find(AppointmentId);
+
+            Appointment.StartDate = NewDate;
         }
     }
 }
