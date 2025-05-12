@@ -62,20 +62,39 @@ namespace BarberAppBackend.Features.Appointments
 
         public bool CanCancelAppointment(DateTime StartDate)
         {
-            TimeSpan TimeDifference = StartDate - ActualDateTime ;
+            TimeSpan TimeDifference = StartDate - ActualDateTime;
 
             //If there is under 3 hours left before appointment can cancel
             if (TimeDifference.TotalHours <= 5)
             {
                 return false;
             }
-            
+
             return true;
         }
 
-        public void RescheduleAppointment(long AppointmentId)
+        public void RescheduleAppointment(long AppointmentId, DateTime NewDate)
         {
             //TODO: Reassign appointment date
+
+            if (NewDate < ActualDateTime)
+            {
+                throw new Exception("No puedes agendar una cita en fecha pasada");
+            }
+
+            var Appointment = _db.Appointments.Find(AppointmentId);
+
+            if (Appointment == null)
+            {
+                throw new ArgumentNullException("No se encontro esta cita con esa referencia");
+            }
+
+            Appointment.StartDate = NewDate;
+            Appointment.Status = APPOINTMENT_STATUS.PENDING;
+
+            _db.Appointments.Update(Appointment);
+            _db.SaveChanges();
+
         }
     }
 }
