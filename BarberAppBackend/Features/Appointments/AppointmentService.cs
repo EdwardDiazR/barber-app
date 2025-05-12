@@ -18,11 +18,10 @@ namespace BarberAppBackend.Features.Appointments
 
             _db = db;
         }
-        public IEnumerable<Appointment> GetAppointmentsByDate(DateTime? Date)
+        public IEnumerable<Appointment> GetAppointmentsByDate(DateTime Date)
         {
-            DateTime SearchDate = (DateTime)(Date != null ? Date : ActualDateTime);
 
-            IEnumerable<Appointment> Appointments = _db.Appointments.Where(a => a.StartDate == SearchDate);
+            IEnumerable<Appointment> Appointments = _db.Appointments.Where(a => a.StartDate.Date == Date.Date);
             return Appointments;
 
         }
@@ -66,15 +65,17 @@ namespace BarberAppBackend.Features.Appointments
                 throw new Exception("Esta cita ya ha sido cancelada");
             }
 
-            if (CanCancelAppointment(Appointment.StartDate))
+            if (CheckIfCanCancelAppointment(Appointment.StartDate))
             {
                 Appointment.CancelledAt = ActualDateTime;
                 Appointment.Status = APPOINTMENT_STATUS.CANCELLED;
                 Appointment.PaymentStatus = APPOINTMENT_PAYMENT_STATUS.CANCELLED;
 
+                _db.Update(Appointment);
+                _db.SaveChanges();
             }
         }
-        public bool CanCancelAppointment(DateTime StartDate)
+        public bool CheckIfCanCancelAppointment(DateTime StartDate)
         {
             TimeSpan TimeDifference = StartDate - ActualDateTime;
 

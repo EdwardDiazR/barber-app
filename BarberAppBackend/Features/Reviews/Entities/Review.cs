@@ -9,5 +9,7 @@ namespace BarberAppBackend.Features.Reviews.Entities
         public required int UserId { get; set; }
         public required int Rating { get; set; } //From 1 to 5
         public string? Comment { get; set; }
+        public DateTime CreatedAt { get; set; }
+
     }
 }

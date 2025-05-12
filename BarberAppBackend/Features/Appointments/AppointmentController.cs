@@ -16,7 +16,7 @@ namespace BarberAppBackend.Features.Appointments
         }
 
         [HttpGet]
-        public IActionResult GetAppointmensByDate(DateTime? Date)
+        public IActionResult GetAppointmensByDate([FromQuery]DateTime Date)
         {
             try
             {

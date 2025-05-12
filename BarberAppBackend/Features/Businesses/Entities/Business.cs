@@ -1,4 +1,5 @@
-﻿using BarberAppBackend.Features.Users.Entities;
+﻿using BarberAppBackend.Features.Reviews.Entities;
+using BarberAppBackend.Features.Users.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace BarberAppBackend.Features.Commerces.Entities
@@ -17,7 +18,10 @@ namespace BarberAppBackend.Features.Commerces.Entities
         //Counters
         public int UpdatedTimes { get; set; } = 0;
         public long AttendedCustomers { get; set; } = 0;
-        public double Ranking { get; set; } = 0.00;
+
+        public ICollection<Review> Reviews { get; set; }
+        public double Ranking => Reviews.Any() == true ? Reviews.Average(r => r.Rating) : 0.0;
+
         public DateTime CreatedAt { get; set; }
         public DateTime? LastUpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
@@ -37,5 +41,7 @@ namespace BarberAppBackend.Features.Commerces.Entities
         public ICollection<User> Admins { get; set; }
         public ICollection<User> Stylists { get; set; }
         public ICollection<string> Services { get; set; }
+
+        
     }
 }

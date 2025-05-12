@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\appointments\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\appointments\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\appointments\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\appointments\\interfaces\\iappointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,8 +15,20 @@
       "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\appointments\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\appointments\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\appointments\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\reviews\\entities\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\reviews\\entities\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\businesses\\entities\\business.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\businesses\\entities\\business.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\appointments\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\appointments\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\barberappbackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:barberappbackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\data\\sqlserverdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:data\\sqlserverdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\appointments\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|solutionrelative:features\\appointments\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84C30ACE-AB39-4A2A-8993-6E3C73376DE2}|BarberAppBackend.csproj|c:\\users\\eadia\\onedrive\\escritorio\\programacion\\barber-app\\barberappbackend\\features\\users\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,47 +58,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1103,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-12T01:07:13.355Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SqlServerDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Data\\SqlServerDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\SqlServerDbContext.cs",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Data\\SqlServerDbContext.cs",
-              "RelativeToolTip": "Data\\SqlServerDbContext.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T23:43:43.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppointmentService.cs",
-              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\AppointmentService.cs",
-              "RelativeDocumentMoniker": "Features\\Appointments\\AppointmentService.cs",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\AppointmentService.cs",
-              "RelativeToolTip": "Features\\Appointments\\AppointmentService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBIAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T23:02:38.452Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -97,46 +70,122 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "Business.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Businesses\\Entities\\Business.cs",
+              "RelativeDocumentMoniker": "Features\\Businesses\\Entities\\Business.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Businesses\\Entities\\Business.cs*",
+              "RelativeToolTip": "Features\\Businesses\\Entities\\Business.cs*",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA2wBUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T23:16:46.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Reviews\\Entities\\Review.cs",
+              "RelativeDocumentMoniker": "Features\\Reviews\\Entities\\Review.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Reviews\\Entities\\Review.cs",
+              "RelativeToolTip": "Features\\Reviews\\Entities\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T22:45:28.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-12T01:07:13.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SqlServerDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Data\\SqlServerDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\SqlServerDbContext.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Data\\SqlServerDbContext.cs",
+              "RelativeToolTip": "Data\\SqlServerDbContext.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T23:43:43.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "Features\\Appointments\\AppointmentService.cs",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\AppointmentService.cs",
+              "RelativeToolTip": "Features\\Appointments\\AppointmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T23:02:38.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Appointment.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\Entities\\Appointment.cs",
               "RelativeDocumentMoniker": "Features\\Appointments\\Entities\\Appointment.cs",
               "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\Entities\\Appointment.cs",
               "RelativeToolTip": "Features\\Appointments\\Entities\\Appointment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAA2wAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T22:47:03.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AppointmentController.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\AppointmentController.cs",
               "RelativeDocumentMoniker": "Features\\Appointments\\AppointmentController.cs",
               "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\AppointmentController.cs",
               "RelativeToolTip": "Features\\Appointments\\AppointmentController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T23:22:18.803Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "IAppointmentService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\Interfaces\\IAppointmentService.cs",
               "RelativeDocumentMoniker": "Features\\Appointments\\Interfaces\\IAppointmentService.cs",
-              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\Interfaces\\IAppointmentService.cs*",
-              "RelativeToolTip": "Features\\Appointments\\Interfaces\\IAppointmentService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABNAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Appointments\\Interfaces\\IAppointmentService.cs",
+              "RelativeToolTip": "Features\\Appointments\\Interfaces\\IAppointmentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T23:09:41.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
+              "Title": "BarberAppBackend",
+              "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\BarberAppBackend.csproj",
+              "RelativeDocumentMoniker": "BarberAppBackend.csproj",
+              "ToolTip": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\BarberAppBackend.csproj",
+              "RelativeToolTip": "BarberAppBackend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-12T22:45:26.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -144,12 +193,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T23:45:13.429Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T23:45:13.429Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Users\\CustomerController.cs",
               "RelativeDocumentMoniker": "Features\\Users\\CustomerController.cs",
@@ -157,12 +205,11 @@
               "RelativeToolTip": "Features\\Users\\CustomerController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T23:08:46.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T23:08:46.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\barber-app\\BarberAppBackend\\Features\\Users\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "Features\\Users\\Interfaces\\IUserService.cs",
@@ -170,8 +217,7 @@
               "RelativeToolTip": "Features\\Users\\Interfaces\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T23:10:50.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T23:10:50.57Z"
             }
           ]
         }
