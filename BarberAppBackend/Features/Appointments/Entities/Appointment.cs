@@ -16,6 +16,10 @@ namespace BarberAppBackend.Features.Appointments.Entities
         public int StylistId { get; set; }
         [Column("service_id")]
         public int ServiceId { get; set; }
+
+        [Column("business_id")]
+        public int BusinessId { get; set; }
+
         [Column("status_id")]
         public APPOINTMENT_STATUS Status { get; set; }
 
@@ -30,6 +34,12 @@ namespace BarberAppBackend.Features.Appointments.Entities
         [Column("completed_at")]
         public DateTime? CompletedAt { get; set; } = null;
 
+        [Column("is_deleted")]
+        public bool IsDeleted { get; set; } = false;
+
+        [Column("deleted_at")]
+        public DateTime? DeletedAt { get; set; } = null;
+
         [Column("payment_status")]
         public APPOINTMENT_PAYMENT_STATUS PaymentStatus { get; set; }
 
@@ -37,7 +47,6 @@ namespace BarberAppBackend.Features.Appointments.Entities
         public string Notes { get; set; }
 
     }
-
     public enum APPOINTMENT_STATUS
     {
         CANCELLED = 0,

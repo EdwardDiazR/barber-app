@@ -10,26 +10,40 @@ namespace BarberAppBackend.Features.Appointments
 {
     public class AppointmentService : IAppointmentService
     {
+        private const int LimitPerDay = 3;
         private readonly DateTime ActualDateTime = DateTime.UtcNow;
         private readonly SqlServerDbContext _db;
         public AppointmentService(SqlServerDbContext db)
         {
+
             _db = db;
+        }
+        public IEnumerable<Appointment> GetAppointmentsByDate(DateTime? Date)
+        {
+            DateTime SearchDate = (DateTime)(Date != null ? Date : ActualDateTime);
+
+            IEnumerable<Appointment> Appointments = _db.Appointments.Where(a => a.StartDate == SearchDate);
+            return Appointments;
+
         }
         public void CreateAppointment(CreateAppointmentDto createAppointmentDto)
         {
+            //TODO: Check if business is active and can receive appointments
+            // Check if is not banned or fraudster
 
             Appointment appointment = new Appointment()
             {
                 CustomerId = createAppointmentDto.CustomerId,
                 ServiceId = createAppointmentDto.ServiceId,
                 StylistId = createAppointmentDto.StylistId,
+                BusinessId = createAppointmentDto.BusinessId,
                 CreatedAt = ActualDateTime,
                 StartDate = createAppointmentDto.StartDate,
                 CancelledAt = null,
                 CompletedAt = null,
                 PaymentStatus = createAppointmentDto.IsPaid ? APPOINTMENT_PAYMENT_STATUS.PAID : APPOINTMENT_PAYMENT_STATUS.PENDING,
                 Status = APPOINTMENT_STATUS.PENDING,
+
             };
 
             _db.Appointments.Add(appointment);
@@ -60,7 +74,6 @@ namespace BarberAppBackend.Features.Appointments
 
             }
         }
-
         public bool CanCancelAppointment(DateTime StartDate)
         {
             TimeSpan TimeDifference = StartDate - ActualDateTime;
@@ -73,7 +86,6 @@ namespace BarberAppBackend.Features.Appointments
 
             return true;
         }
-
         public void RescheduleAppointment(long AppointmentId, DateTime NewDate)
         {
             //TODO: Reassign appointment date
@@ -94,6 +106,21 @@ namespace BarberAppBackend.Features.Appointments
             Appointment.Status = APPOINTMENT_STATUS.PENDING;
 
             _db.Appointments.Update(Appointment);
+            _db.SaveChanges();
+
+        }
+
+        public void DeleteAppointment(long AppointmentId)
+        {
+            var Appointment = _db.Appointments.Find(AppointmentId);
+
+            ArgumentNullException.ThrowIfNull(Appointment);
+
+            Appointment.IsDeleted = true;
+            Appointment.Status = APPOINTMENT_STATUS.CANCELLED;
+            Appointment.DeletedAt = ActualDateTime;
+
+            _db.Update(Appointment);
             _db.SaveChanges();
 
         }
