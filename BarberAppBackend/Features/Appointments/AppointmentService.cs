@@ -1,7 +1,8 @@
 ﻿
 using BarberAppBackend.Data;
-using BarberAppBackend.Features.Appointments;
+
 using BarberAppBackend.Features.Appointments.Entities;
+using BarberAppBackend.Features.Appointments.Entities.Dtos;
 using BarberAppBackend.Features.Appointments.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

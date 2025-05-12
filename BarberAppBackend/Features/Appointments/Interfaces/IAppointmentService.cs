@@ -1,4 +1,4 @@
-﻿using BarberAppBackend.Features.Appointments.Entities;
+﻿using BarberAppBackend.Features.Appointments.Entities.Dtos;
 
 namespace BarberAppBackend.Features.Appointments.Interfaces
 {
