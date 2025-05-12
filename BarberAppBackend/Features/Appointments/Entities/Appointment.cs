@@ -32,6 +32,10 @@ namespace BarberAppBackend.Features.Appointments.Entities
 
         [Column("payment_status")]
         public APPOINTMENT_PAYMENT_STATUS PaymentStatus { get; set; }
+
+        [Column("notes")]
+        public string Notes { get; set; }
+
     }
 
     public enum APPOINTMENT_STATUS
