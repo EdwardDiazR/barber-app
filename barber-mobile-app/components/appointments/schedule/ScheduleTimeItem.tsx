@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Pressable } from "react-native";
 import Animated from "react-native-reanimated";
 const TimeItem = ({
   item,
   isSelected,
   handleSelectTime,
+  selectedTime,
 }: {
   item: { time: string; label: string; available: boolean };
   isSelected: boolean;
-  handleSelectTime: (time: string) => void;
+  selectedTime: string | null;
+  handleSelectTime: (time: string | null) => void;
 }) => {
   const isTimeAvailable: boolean = item.available;
 
@@ -19,29 +21,19 @@ const TimeItem = ({
   };
   const setBgColor = () => {
     if (isTimeAvailable && !isSelected) return "white";
-    if (isTimeAvailable && isSelected) return "red";
+    if (isTimeAvailable && isSelected) return "#1B1212";
     if (!isTimeAvailable) return "white";
   };
 
   const setBorderColor = () => {
     if (isTimeAvailable && !isSelected) return "#1c6e8c";
-    if (isTimeAvailable && isSelected) return "red";
-    if (!isTimeAvailable) return "lightgray";
+    if (isTimeAvailable && isSelected) return "#1B1212";
+    if (!isTimeAvailable) return "gray";
   };
-  //   const progress = useSharedValue(isSelected ? 1 : 0);
-  //   const animatedStyle = useAnimatedStyle(() => {
-  //     const backgroundColor = interpolateColor(
-  //       progress.value,
-  //       [0, 1],
-  //       ["#EEEEEE", "#1E90FF"] // de gris claro a azul
-  //     );
 
-  //     const textColor = interpolateColor(
-  //       progress.value,
-  //       [0, 1],
-  //       ["#000000", "#FFFFFF"] // de negro a blanco
-  //     );
-  //   });
+  useEffect(() => {
+    if (item.time === selectedTime && !isTimeAvailable) handleSelectTime(null);
+  }, [isTimeAvailable]);
 
   return (
     <Animated.View style={{ margin: 1.5 }}>
@@ -52,22 +44,23 @@ const TimeItem = ({
         }}
         style={[
           {
-            borderWidth: 1.3,
+            borderWidth: 1.5,
             borderColor: setBorderColor(),
-            borderRadius: 12,
+            borderRadius: 15,
             alignItems: "center",
             justifyContent: "center",
             elevation: isSelected ? 5 : 0,
             backgroundColor: setBgColor(),
-            height: 42,
+            height: 43,
+            opacity: isTimeAvailable ? 1 : 0.6,
           },
         ]}
       >
         <Animated.Text
           style={{
-            fontSize: 16,
+            fontSize: 15,
             color: setTextColor(),
-            fontWeight: "medium",
+            fontFamily:'AmulyaMedium'
           }}
         >
           {item.label}
