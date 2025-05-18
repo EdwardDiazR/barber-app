@@ -23,7 +23,7 @@ const ScheduleInfoCard = ({ date, time }: { date: string; time: string | null })
           textAlign: "center",
           fontSize: 18,
           fontFamily: "AmulyaMedium",
-          color:'green'
+          color: "green",
         }}
       >
         Informacion del turno

@@ -114,9 +114,8 @@ export default function HomeScreen() {
         </ScrollView>
       </View>
 
-      <Text style={{ fontFamily: "AmulyaBold", fontSize: 19 }}>
-        Tus citas para hoy
-      </Text>
+      <Text style={{ fontFamily: "AmulyaBold", fontSize: 19 }}>Tus citas para hoy</Text>
+      {/* <ExpandableCalendar initialPosition={Positions.OPEN}  /> */}
 
       <AgendaList sections={[]} />
     </View>

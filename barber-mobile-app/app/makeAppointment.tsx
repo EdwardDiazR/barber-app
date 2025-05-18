@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import AppointmentSelectedCustomerCard from "@/components/appointments/AppointmentSelectedCustomerCard";
 import ScheduleCalendar from "@/components/appointments/schedule/ScheduleCalendar";
 import ScheduleInfoCard from "@/components/appointments/schedule/ScheduleInfoCard";
 import TimeItem from "@/components/appointments/schedule/ScheduleTimeItem";
+import { AppointmentSelectedCustomer } from "@/models/Customer";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Stack, useLocalSearchParams } from "expo-router";
 
@@ -28,6 +30,11 @@ type Horario = {
   time: string; // formato "HH:mm"
   label: string; // formato "h:mm AM/PM"
   available: boolean;
+};
+
+type Customer = {
+  name: string;
+  alias?: string;
 };
 export default function MakeAppointment() {
   const {
@@ -76,7 +83,11 @@ export default function MakeAppointment() {
   const [selectedDate, setSelectedDate] = useState<string>(moment().format("YYYY-MM-DD"));
   const [markedAppointmentDates, setMarked] = useState<MarkedDates>({});
 
-  const [customerName, setCustomerName] = useState<string>("Juan");
+  const [customer, setCustomer] = useState<AppointmentSelectedCustomer | null>({
+    id: 1,
+    name: "Manuel",
+    alias: "Pimpo",
+  });
   const handleSelectTime = (time: string | null) => {
     setSelectedTime(time);
   };
@@ -156,7 +167,6 @@ export default function MakeAppointment() {
       />
       <View style={{ flex: 1, marginTop: 10 }}>
         <ScrollView showsVerticalScrollIndicator={false}>
-
           {/* todo: Make an bottom sheet with search options like bar and the list w results  */}
           {userRole === "STYLIST" && (
             <View
@@ -192,17 +202,13 @@ export default function MakeAppointment() {
 
           {userRole === "CUSTOMER" && userName && <Text>Hola {userName}</Text>}
 
-          <View>
+          <View style={{ gap: 5 }}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
               <MaterialIcons name="person-outline" size={24} />
               <Text style={{ fontSize: 16.5, fontFamily: "AmulyaMedium" }}>Cliente</Text>
             </View>
 
-            <View
-              style={{ elevation: 2, backgroundColor: "white", padding: 10, borderRadius: 10, marginHorizontal: 3 }}
-            >
-              <Text>{customerName}</Text>
-            </View>
+            <AppointmentSelectedCustomerCard customer={customer} />
           </View>
           <Divider
             style={{

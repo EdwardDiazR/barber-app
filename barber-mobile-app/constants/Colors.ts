@@ -8,7 +8,7 @@ const tintColorDark = "#fff";
 
 export const Colors = {
   red: {
-    primary:'red'
+    primary: "red",
   },
   light: {
     text: "#11181C",

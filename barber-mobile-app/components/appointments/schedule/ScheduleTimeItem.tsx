@@ -60,7 +60,7 @@ const TimeItem = ({
           style={{
             fontSize: 15,
             color: setTextColor(),
-            fontFamily:'AmulyaMedium'
+            fontFamily: "AmulyaMedium",
           }}
         >
           {item.label}

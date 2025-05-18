@@ -33,7 +33,7 @@ export default function RootLayout() {
           options={{
             title: "Agendar cita",
             animation: "fade_from_bottom",
-            headerShown:true
+            headerShown: true,
           }}
         />
         <Stack.Screen name="+not-found" />
