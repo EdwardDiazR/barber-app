@@ -1,19 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import AppointmentSelectedCustomerCard from "@/components/appointments/AppointmentSelectedCustomerCard";
 import ScheduleCalendar from "@/components/appointments/schedule/ScheduleCalendar";
-import ScheduleInfoCard from "@/components/appointments/schedule/ScheduleInfoCard";
 import TimeItem from "@/components/appointments/schedule/ScheduleTimeItem";
 import { AppointmentSelectedCustomer } from "@/models/Customer";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Stack, useLocalSearchParams } from "expo-router";
 
+import ScheduleInfoCard from "@/components/appointments/schedule/ScheduleInfoCard";
+import SearchCustomerList from "@/components/customers/SearchCustomerList";
+import { Colors } from "@/constants/Colors";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import moment from "moment";
 import "moment/locale/es";
 import React, { useEffect, useMemo, useState } from "react";
-import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
 import { DateData, MarkedDates } from "react-native-calendars/src/types";
 import { Divider } from "react-native-paper";
-import Animated, { FadeInDown } from "react-native-reanimated";
+import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FlatGrid } from "react-native-super-grid";
 
@@ -88,6 +91,8 @@ export default function MakeAppointment() {
     name: "Manuel",
     alias: "Pimpo",
   });
+
+  const [isSearchingCustomer, setIsSearchingCustomer] = useState<boolean>(false);
   const handleSelectTime = (time: string | null) => {
     setSelectedTime(time);
   };
@@ -106,12 +111,12 @@ export default function MakeAppointment() {
   };
   const insets = useSafeAreaInsets();
   const [apps, setApps] = useState<{ time: string; date: string }[]>([
-    { time: "9:00", date: "2025-05-23" },
+    { time: "09:30", date: "2025-05-23" },
     { time: "12:30", date: "2025-05-22" },
     { time: "14:45", date: "2025-05-22" },
     { time: "18:30", date: "2025-05-22" },
 
-    { time: "13:30", date: "2025-05-25" },
+    { time: "13:15", date: "2025-05-25" },
     { time: "13:30", date: "2025-05-26" },
   ]);
   const setAvailableTimes = useMemo(() => {
@@ -146,9 +151,19 @@ export default function MakeAppointment() {
     setMarked(newMarks);
   }, [selectedDate, apps]);
 
+  const removeCustomer = () => {
+    setCustomer(null);
+  };
+  const handleSearchCustomer = () => {
+    setIsSearchingCustomer(!isSearchingCustomer);
+  };
   useEffect(() => {
     setTimes(generateSchedule(8, 20, 45));
   }, []);
+
+  useEffect(() => {
+    console.log(isSearchingCustomer);
+  }, [isSearchingCustomer, setIsSearchingCustomer]);
 
   return (
     <View
@@ -165,39 +180,78 @@ export default function MakeAppointment() {
           headerShadowVisible: true,
         }}
       />
+      {selectedDate && selectedTime && customer && (
+        <Animated.View
+          entering={FadeInUp.duration(500)}
+          style={{
+            backgroundColor: Colors.red.primary,
+            borderWidth: 2,
+            borderColor: Colors.red.primary,
+            elevation: 1,
+            borderRadius: 19,
+            overflow: "hidden",
+            padding: 10,
+            gap: 10,
+            marginTop: 2,
+          }}
+        >
+          <ScheduleInfoCard
+            date={selectedDate}
+            time={selectedTime}
+            customerName={customer.alias ? customer.alias : customer.name}
+          />
+        </Animated.View>
+      )}
       <View style={{ flex: 1, marginTop: 10 }}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <Animated.ScrollView showsVerticalScrollIndicator={false}>
           {/* todo: Make an bottom sheet with search options like bar and the list w results  */}
-          {userRole === "STYLIST" && (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 5,
-                backgroundColor: "lightgray",
-                borderRadius: 8,
-                padding: 1,
-                paddingHorizontal: 5,
-                marginBottom: 5,
-              }}
-            >
-              <TextInput
-                placeholder="Buscar cliente"
-                spellCheck={false}
-                style={{ flex: 1, fontFamily: "AmulyaRegular", fontSize: 16 }}
-                clearButtonMode="while-editing"
-              />
-              <Divider
+          {userRole === "STYLIST" && !customer && (
+            <>
+              <View
                 style={{
-                  borderWidth: 0.4,
-                  height: "80%",
-                  borderColor: "gray",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 5,
+                  backgroundColor: "lightgray",
+                  borderTopEndRadius: 8,
+                  borderTopStartRadius: 8,
+                  borderBottomEndRadius: isSearchingCustomer ? 0 : 8,
+                  borderBottomStartRadius: isSearchingCustomer ? 0 : 8,
+                  padding: 1,
+                  paddingHorizontal: 5,
+                  marginBottom: 0,
+                  borderWidth: 0,
                 }}
-              />
-              <Pressable style={{ marginHorizontal: 5 }}>
-                <MaterialIcons name="search" size={25} />
-              </Pressable>
-            </View>
+              >
+                <TextInput
+                  placeholder="Buscar cliente"
+                  spellCheck={false}
+                  style={{ flex: 1, fontFamily: "AmulyaRegular", fontSize: 16 }}
+                  clearButtonMode="while-editing"
+                  onFocus={handleSearchCustomer}
+                  onBlur={handleSearchCustomer}
+                />
+
+                <Divider
+                  style={{
+                    borderWidth: 0.4,
+                    height: "80%",
+                    borderColor: "gray",
+                  }}
+                />
+                <Pressable style={{ marginHorizontal: 5 }}>
+                  <MaterialIcons name="person-search" size={25} />
+                </Pressable>
+              </View>
+              {isSearchingCustomer && (
+                <Animated.View
+                  entering={FadeInDown.duration(200).damping(2)}
+            
+                >
+                  <SearchCustomerList />
+                </Animated.View>
+              )}
+            </>
           )}
 
           {userRole === "CUSTOMER" && userName && <Text>Hola {userName}</Text>}
@@ -208,7 +262,7 @@ export default function MakeAppointment() {
               <Text style={{ fontSize: 16.5, fontFamily: "AmulyaMedium" }}>Cliente</Text>
             </View>
 
-            <AppointmentSelectedCustomerCard customer={customer} />
+            <AppointmentSelectedCustomerCard customer={customer} removeCustomer={removeCustomer} />
           </View>
           <Divider
             style={{
@@ -247,7 +301,7 @@ export default function MakeAppointment() {
           <FlatGrid
             data={times}
             spacing={6}
-            itemDimension={50}
+            itemDimension={60}
             style={{ flexGrow: 0 }}
             maxItemsPerRow={4}
             nestedScrollEnabled
@@ -263,21 +317,13 @@ export default function MakeAppointment() {
               />
             )}
           />
-        </ScrollView>
+        </Animated.ScrollView>
       </View>
       <View>
-        {selectedDate && selectedTime && (
-          <Animated.View
-            entering={FadeInDown}
-            style={{ backgroundColor: "white", elevation: 1, borderRadius: 15, padding: 5, gap: 10, margin: 5 }}
-          >
-            <ScheduleInfoCard date={selectedDate} time={selectedTime} />
-          </Animated.View>
-        )}
-
         <Pressable
           style={{
-            backgroundColor: "#226ce0",
+            backgroundColor: Colors.red.primary,
+            elevation: 2,
             marginVertical: 8,
             borderRadius: 10,
             height: 40,
@@ -285,6 +331,8 @@ export default function MakeAppointment() {
             justifyContent: "center",
             margin: 10,
             marginBottom: 20,
+            flexDirection: "row",
+            gap: 10,
           }}
         >
           <Text
@@ -295,8 +343,9 @@ export default function MakeAppointment() {
               textAlign: "center",
             }}
           >
-            Agregar cita
+            Agendar cita
           </Text>
+          <Ionicons name="cut-sharp" size={24} color="white" />
         </Pressable>
       </View>
     </View>

@@ -53,7 +53,7 @@ export default function HomeScreen() {
           <View style={{ flexDirection: "row", gap: 10 }}>
             <Link
               href={{
-                pathname: "/makeAppointment",
+                pathname: "/bookAppointment",
                 params: {
                   businessId: 1,
                   role: "STYLIST",

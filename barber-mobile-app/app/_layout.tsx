@@ -1,8 +1,4 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -29,7 +25,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="(stylist)" options={{ headerShown: false }} />
         <Stack.Screen
-          name="makeAppointment"
+          name="bookAppointment"
           options={{
             title: "Agendar cita",
             animation: "fade_from_bottom",

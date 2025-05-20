@@ -11,7 +11,6 @@ interface CalendarProps {
 const ScheduleCalendar = ({ selectedDate, handleSelectDate, markedAppointmentDates, todaysDate }: CalendarProps) => {
   return (
     <Calendar
-    
       date={selectedDate}
       current={selectedDate}
       state="today"
@@ -21,7 +20,6 @@ const ScheduleCalendar = ({ selectedDate, handleSelectDate, markedAppointmentDat
       minDate={todaysDate.toDateString()}
       enableSwipeMonths
       hideExtraDays
-      disableArrowLeft
       markingType="dot"
       markedDates={markedAppointmentDates}
       onDayPress={handleSelectDate}
