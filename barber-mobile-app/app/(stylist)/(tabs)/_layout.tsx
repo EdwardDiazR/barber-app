@@ -11,9 +11,15 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
+        tabBarStyle: {
+          backgroundColor: "white",
+          borderWidth: 0,
+          borderColor: "white",
+        },
         tabBarLabelStyle: {
           fontSize: 12,
           fontFamily: "AmulyaBold",
+          color: "black",
         },
       }}
     >
@@ -23,11 +29,7 @@ export default function TabLayout() {
           title: "Inicio",
           headerShown: true,
           tabBarIcon: ({ color, focused }) => (
-            <MaterialIcons
-              size={28}
-              name={"home"}
-              color={focused ? "red" : "gray"}
-            />
+            <MaterialIcons size={28} name={"home"} color={focused ? "red" : "gray"} />
           ),
         }}
       />
@@ -37,11 +39,7 @@ export default function TabLayout() {
           title: "Mi cuenta",
           headerShown: true,
           tabBarIcon: ({ color, focused }) => (
-            <MaterialIcons
-              size={30}
-              name="account-circle"
-              color={Colors.red.primary}
-            />
+            <MaterialIcons size={30} name="account-circle" color={Colors.red.primary} />
           ),
         }}
       />

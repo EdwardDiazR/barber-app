@@ -28,7 +28,7 @@ export default function RootLayout() {
           name="bookAppointment"
           options={{
             title: "Agendar cita",
-            animation: "fade_from_bottom",
+            animation: "ios_from_right",
             headerShown: true,
           }}
         />

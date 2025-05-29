@@ -116,8 +116,8 @@ export default function MakeAppointment() {
     { time: "14:45", date: "2025-05-22" },
     { time: "18:30", date: "2025-05-22" },
 
-    { time: "13:15", date: "2025-05-25" },
-    { time: "13:30", date: "2025-05-26" },
+    { time: "13:15", date: "2025-05-29" },
+    { time: "13:15", date: "2025-05-28" },
   ]);
   const setAvailableTimes = useMemo(() => {
     const availableTimes = times.map((t) => {
@@ -178,6 +178,9 @@ export default function MakeAppointment() {
           title: "Agendar cita",
           headerShown: true,
           headerShadowVisible: true,
+          headerBackTitle: "Atras",
+          headerTitleStyle: { color: "black" },
+          headerStyle: { backgroundColor: "white" },
         }}
       />
       {selectedDate && selectedTime && customer && (
@@ -206,7 +209,7 @@ export default function MakeAppointment() {
         <Animated.ScrollView showsVerticalScrollIndicator={false}>
           {/* todo: Make an bottom sheet with search options like bar and the list w results  */}
           {userRole === "STYLIST" && !customer && (
-            <>
+            <View style={{ backgroundColor: "lightgray", borderRadius: 8 }}>
               <View
                 style={{
                   flexDirection: "row",
@@ -244,14 +247,11 @@ export default function MakeAppointment() {
                 </Pressable>
               </View>
               {isSearchingCustomer && (
-                <Animated.View
-                  entering={FadeInDown.duration(200).damping(2)}
-            
-                >
+                <Animated.View entering={FadeInDown.duration(200).damping(2)}>
                   <SearchCustomerList />
                 </Animated.View>
               )}
-            </>
+            </View>
           )}
 
           {userRole === "CUSTOMER" && userName && <Text>Hola {userName}</Text>}

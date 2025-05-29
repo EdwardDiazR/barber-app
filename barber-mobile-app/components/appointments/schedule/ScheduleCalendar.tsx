@@ -9,6 +9,9 @@ interface CalendarProps {
   handleSelectDate: (date: DateData) => void;
 }
 const ScheduleCalendar = ({ selectedDate, handleSelectDate, markedAppointmentDates, todaysDate }: CalendarProps) => {
+  const MAX_DAYS: number = 6;
+  const futureDate = new Date(todaysDate); //Indicates the max date of making appointments
+  futureDate.setDate(todaysDate.getDate() + MAX_DAYS);
   return (
     <Calendar
       date={selectedDate}
@@ -16,8 +19,8 @@ const ScheduleCalendar = ({ selectedDate, handleSelectDate, markedAppointmentDat
       state="today"
       firstDay={1}
       monthFormat="MMMM yyyy"
-      disableAllTouchEventsForDisabledDays
       minDate={todaysDate.toDateString()}
+      maxDate={futureDate.toString()}
       enableSwipeMonths
       hideExtraDays
       markingType="dot"
