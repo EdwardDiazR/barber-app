@@ -24,6 +24,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(stylist)" options={{ headerShown: false }} />
+        <Stack.Screen name="auth" options={{ headerShown: true }} />
         <Stack.Screen
           name="bookAppointment"
           options={{
