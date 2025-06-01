@@ -12,16 +12,13 @@ const HomeHeader = () => {
     <View
       style={{
         paddingTop: insets.top + 5,
+        paddingBottom: 10,
         paddingHorizontal: 10,
         backgroundColor: Colors.red.primary,
       }}
     >
       <StatusBar style="auto" animated hideTransitionAnimation="fade" />
-      <Text
-        style={{ fontSize: 25, fontFamily: "AmulyaMedium", color: "white" }}
-      >
-        Hola, {stylistName}
-      </Text>
+      <Text style={{ fontSize: 25, fontFamily: "AmulyaMedium", color: "white" }}>Hola, {stylistName}</Text>
     </View>
   );
 };

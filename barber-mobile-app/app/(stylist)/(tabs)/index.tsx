@@ -1,18 +1,26 @@
+import { AppointmentCard } from "@/components/appointments/AppointmentCard";
 import HomeHeader from "@/components/shared/HomeHeader";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Link, Stack } from "expo-router";
-import { useCallback, useState } from "react";
-import { ActivityIndicator, FlatList, Pressable, ScrollView, Text, View } from "react-native";
-import { Agenda, DateData } from "react-native-calendars";
+import moment from "moment";
+import { useCallback, useEffect, useState } from "react";
+import { FlatList, Pressable, ScrollView, Text, View } from "react-native";
+import { CalendarProvider, DateData, ExpandableCalendar } from "react-native-calendars";
+import { Positions } from "react-native-calendars/src/expandableCalendar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   const { top } = useSafeAreaInsets();
   const todayDate = new Date();
-  const [selected, setSelected] = useState(todayDate.toDateString());
+  const [selected, setSelected] = useState<string>(todayDate.toDateString());
 
   const handleDaySelect = (date: DateData) => {
     setSelected(date.dateString);
+  };
+
+  const resetDate = () => {
+    setSelected(todayDate.toDateString());
   };
   const renderItem = useCallback((item: any) => {
     return <Text>{item.name}</Text>;
@@ -20,6 +28,29 @@ export default function HomeScreen() {
   const renderDay = useCallback((item: any) => {
     return <Text>{item.name}</Text>;
   }, []);
+
+  const marked = {
+    [selected]: {
+      selected: true,
+      marked: true,
+      selectedColor: "red",
+    
+      disableTouchEvent: true,
+    },
+  };
+
+  useEffect(() => {
+    console.log("Selected", moment(selected, true).toDate());
+
+    console.log("Todays", moment(todayDate, true).toDate());
+  }, [selected, todayDate]);
+
+  const checkSelectedDateIsToday = (): boolean => {
+    const selectedDate = moment(selected);
+    const todaysDate = moment(todayDate);
+    return selectedDate.isSame(todaysDate, "day");
+  };
+
   return (
     <View
       style={{
@@ -29,8 +60,9 @@ export default function HomeScreen() {
         paddingTop: 12,
       }}
     >
-      <Stack.Screen options={{ header: () => <HomeHeader /> }} />
-      {/* <CalendarProvider date={new Date().toDateString()}>
+      <CalendarProvider date={selected}>
+        <Stack.Screen options={{ header: () => <HomeHeader /> }} />
+        {/* <CalendarProvider date={new Date().toDateString()}>
         <WeekCalendar firstDay={1}/>
         <ExpandableCalendar
           onDayPress={handleDaySelect}
@@ -53,20 +85,45 @@ export default function HomeScreen() {
           )}
         />
       </CalendarProvider> */}
-      <View style={{}}>
-        <ScrollView horizontal>
-          <View style={{ flexDirection: "row", gap: 10 }}>
-            <Link
-              href={{
-                pathname: "/bookAppointment",
-                params: {
-                  businessId: 1,
-                  role: "STYLIST",
-                  userName: "Mario",
-                },
-              }}
-            >
-              <View
+        <View style={{}}>
+          <ScrollView horizontal>
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <Link
+                href={{
+                  pathname: "/bookAppointment",
+                  params: {
+                    businessId: 1,
+                    role: "STYLIST",
+                    userName: "Mario",
+                  },
+                }}
+              >
+                <View
+                  style={{
+                    backgroundColor: "white",
+                    borderWidth: 2,
+                    borderColor: "red",
+                    padding: 7,
+                    borderRadius: 15,
+                    elevation: 5,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    gap: 5,
+                  }}
+                >
+                  <MaterialIcons name="add" color={"red"} size={20} />
+                  <Text
+                    style={{
+                      color: "red",
+                      fontSize: 16,
+                      fontFamily: "AmulyaMedium",
+                    }}
+                  >
+                    Agendar cita
+                  </Text>
+                </View>
+              </Link>
+              <Pressable
                 style={{
                   backgroundColor: "white",
                   borderWidth: 2,
@@ -79,7 +136,7 @@ export default function HomeScreen() {
                   gap: 5,
                 }}
               >
-                <MaterialIcons name="add" color={"red"} size={20} />
+                <MaterialIcons name="calendar-month" color={"red"} size={20} />
                 <Text
                   style={{
                     color: "red",
@@ -87,39 +144,77 @@ export default function HomeScreen() {
                     fontFamily: "AmulyaMedium",
                   }}
                 >
-                  Agendar cita
+                  Ver calendario
                 </Text>
-              </View>
-            </Link>
-            <Pressable
+              </Pressable>
+            </View>
+          </ScrollView>
+        </View>
+        <ExpandableCalendar
+          firstDay={1}
+          disableMonthChange={true}
+          disableAllTouchEventsForDisabledDays={true}
+          date={selected}
+          initialDate={todayDate.toDateString()}
+          initialPosition={Positions.CLOSED}
+          onDayPress={handleDaySelect}
+          closeOnDayPress={true}
+          disableWeekScroll
+          disabledByWeekDays={[]}
+          minDate={todayDate.toDateString()}
+          calendarStyle={{}}
+          markedDates={marked}
+          allowShadow
+          animateScroll
+          theme={{
+            selectedDayBackgroundColor: "#00adf5",
+            todayTextColor: "#00adf5",
+            todayBackgroundColor: "transparent", // 👈 esto evita el fondo azul
+            dayTextColor: "#222222",
+            textDisabledColor: "#cccccc",
+          }}
+        />
+
+        {!checkSelectedDateIsToday() && (
+          <Pressable
+            style={{
+              backgroundColor: "red",
+              width: 180,
+              borderRadius: 10,
+              elevation: 1,
+            }}
+            onPress={resetDate}
+          >
+            <View
               style={{
-                backgroundColor: "white",
-                borderWidth: 2,
-                borderColor: "red",
-                padding: 7,
-                borderRadius: 15,
-                elevation: 5,
+                justifyContent: "center",
                 flexDirection: "row",
                 alignItems: "center",
+                paddingHorizontal: 15,
+                paddingVertical: 10,
                 gap: 5,
               }}
             >
-              <MaterialIcons name="calendar-month" color={"red"} size={20} />
-              <Text
-                style={{
-                  color: "red",
-                  fontSize: 16,
-                  fontFamily: "AmulyaMedium",
-                }}
-              >
-                Ver calendario
-              </Text>
-            </Pressable>
-          </View>
-        </ScrollView>
-      </View>
-
-      <Agenda
+              <MaterialCommunityIcons name="update" color={"white"} size={20} />
+              <Text style={{ color: "white", fontFamily: "AmulyaRegular" }}>Volver al dia de hoy</Text>
+            </View>
+          </Pressable>
+        )}
+        <FlatList
+          ListHeaderComponentStyle={{ marginVertical: 5 }}
+          ListHeaderComponent={() => (
+            <Text style={{ fontFamily: "AmulyaMedium", fontSize: 16 }}>
+              {checkSelectedDateIsToday() ? "Tus citas de hoy" : `Tus citas del ${selected}`}
+            </Text>
+          )}
+          data={[
+            { customer: "Manuel", hora: "12:00 PM" },
+            { customer: "Manuel", hora: "12:00 PM" },
+          ]}
+          renderItem={({ item }) => <AppointmentCard info={item} />}
+        />
+      </CalendarProvider>
+      {/* <Agenda
         // The list of items that have to be displayed in agenda. If you want to render item as empty date
         // the value of date key has to be an empty array []. If there exists no value for date key it is
         // considered that the date in question is not yet loaded
@@ -150,7 +245,7 @@ export default function HomeScreen() {
         // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
         minDate={todayDate.toDateString()}
         // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-        maxDate={todayDate.setDate(todayDate.getDate() + 6).toString()}
+        // maxDate={todayDate.setDate(todayDate.getDate() + 6).toString()}
         // Max amount of months allowed to scroll to the past. Default = 50
         pastScrollRange={50}
         // Max amount of months allowed to scroll to the future. Default = 50
@@ -188,15 +283,19 @@ export default function HomeScreen() {
           //TODO: Crear lista que solo muestre los elementos del dia seleccionado
           return (
             <FlatList
+              ListHeaderComponentStyle={{ marginVertical: 5 }}
+              ListHeaderComponent={() => (
+                <Text style={{ fontFamily: "AmulyaMedium", fontSize: 16 }}>
+                  {selected === todayDate.toDateString()
+                    ? "Tus citas de hoy"
+                    : `Tus citas del ${new Date(selected).toLocaleDateString()}`}
+                </Text>
+              )}
               data={[
                 { customer: "Manuel", hora: "12:00 PM" },
                 { customer: "Manuel", hora: "12:00 PM" },
               ]}
-              renderItem={({ item }) => (
-                <Text>
-                  {item.customer} - {item.hora}
-                </Text>
-              )}
+              renderItem={({ item }) => <AppointmentCard info={item} />}
             />
           );
         }}
@@ -218,7 +317,7 @@ export default function HomeScreen() {
         showClosingKnob={true}
         // By default, agenda dates are marked if they have at least one item, but you can override this if needed
         markedDates={{
-          "2025-05-29": { selected: false, marked: true },
+          "2025-06-01": { selected: false, marked: true },
         }}
         // If disabledByDefault={true} dates flagged as not disabled will be enabled. Default = false
         disabledByDefault={true}
@@ -237,7 +336,7 @@ export default function HomeScreen() {
         }}
         // Agenda container style
         style={{}}
-      />
+      /> */}
     </View>
   );
 }

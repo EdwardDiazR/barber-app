@@ -19,7 +19,7 @@ export default function RootLayout() {
     // Async font loading only occurs in development.
     return null;
   }
-
+  const today = new Date();
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
