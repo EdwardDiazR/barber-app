@@ -28,16 +28,17 @@ export default function HomeScreen() {
   const renderDay = useCallback((item: any) => {
     return <Text>{item.name}</Text>;
   }, []);
+  const marked = selected
+    ? {
+        [selected]: {
+          selected: true,
+          marked: true,
+          selectedColor: "red",
 
-  const marked = {
-    [selected]: {
-      selected: true,
-      marked: true,
-      selectedColor: "red",
-    
-      disableTouchEvent: true,
-    },
-  };
+          disableTouchEvent: true,
+        },
+      }
+    : {};
 
   useEffect(() => {
     console.log("Selected", moment(selected, true).toDate());
@@ -166,13 +167,8 @@ export default function HomeScreen() {
           markedDates={marked}
           allowShadow
           animateScroll
-          theme={{
-            selectedDayBackgroundColor: "#00adf5",
-            todayTextColor: "#00adf5",
-            todayBackgroundColor: "transparent", // 👈 esto evita el fondo azul
-            dayTextColor: "#222222",
-            textDisabledColor: "#cccccc",
-          }}
+          scrollEnabled={false}
+          theme={{}}
         />
 
         {!checkSelectedDateIsToday() && (
