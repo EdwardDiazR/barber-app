@@ -18,10 +18,12 @@ namespace BarberAppBackend.Features.Appointments
 
             _db = db;
         }
-        public IEnumerable<Appointment> GetAppointmentsByDate(DateTime Date)
+        public async Task<IEnumerable<Appointment>> GetAppointmentsByDate(DateTime Date)
         {
 
-            IEnumerable<Appointment> Appointments = _db.Appointments.Where(a => a.StartDate.Date == Date.Date);
+            IEnumerable<Appointment> Appointments = await _db.Appointments
+                .Where(a => a.StartDate.Date == Date.Date)
+                .ToListAsync();
             return Appointments;
 
         }
